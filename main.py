@@ -12,7 +12,7 @@ init()
 
 # 変数の設定
 status = "SimpleMusicBot v1.4 For Google Colaboratory"
-bot_version: str = "v1.4 For Google Colaboratory"
+bot_version: str = "v1.4_ForGoogleColaboratory"
 config_version: int = 3
 smb_info = Fore.BLUE + "[SMB-Info]" + Style.RESET_ALL
 smb_debug = Fore.GREEN + "[SMB-Debug]" + Style.RESET_ALL
