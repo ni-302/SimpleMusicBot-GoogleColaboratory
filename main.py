@@ -55,14 +55,31 @@ def config_gen():
         if user_input is not None:
             config_token = user_input
             break
+    while True:
+        try:
+            user_input = input("初期の音量を入力してください。(推奨値:0.2): ") 
+        except KeyboardInterrupt:
+            sys.exit()
+        if user_input is not None:
+            s_dvol = user_input
+            break
+    while True:
+        try:
+            user_input = input("デバッグモードを有効にしますか?[True/False]: ") 
+        except KeyboardInterrupt:
+            sys.exit()
+        if user_input is not None:
+            s_debugmode: bool = user_input
+            break
     config['config'] = {
     'config_version' : f'{config_version}',
     'token': f'{config_token}',
-    'default_volume': '0.2',
-    'DevMode': 'False'
+    'default_volume': f'{s_dvol}',
+    'DevMode': f'{s_debugmode}'
     }
     with open(config_file_name, 'w') as configfile:
         config.write(configfile)
+        print(f'{smb_info}config.iniを生成しました!')
 
 # configがあるか確認してなければ生成する
 if config_status == "NotFound":
